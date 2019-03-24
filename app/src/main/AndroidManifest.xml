@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Match" />
+        <activity android:name=".Square" />
+        <activity android:name=".Introduce"></activity>
     </application>
 
 </manifest>
