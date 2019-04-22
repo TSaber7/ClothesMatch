@@ -43,4 +43,4 @@ public class ClothesMatch extends AppCompatActivity {
             }
         });
     }
-}
+            }

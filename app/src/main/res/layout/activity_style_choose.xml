@@ -3,18 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <ListView
-        android:id="@+id/SquareMessage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/BottomPageChange">
-    </ListView>
     <LinearLayout
-        android:id="@+id/BottomPageChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
 
         <Button
             android:layout_width="0dp"
@@ -44,4 +38,17 @@
             android:id="@+id/Mine"
             android:text="我的" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/StartMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Start" />
 </RelativeLayout>
+

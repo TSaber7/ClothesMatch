@@ -3,18 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <ListView
-        android:id="@+id/SquareMessage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/BottomPageChange">
-    </ListView>
     <LinearLayout
-        android:id="@+id/BottomPageChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout2">
 
         <Button
             android:layout_width="0dp"
@@ -44,4 +38,16 @@
             android:id="@+id/Mine"
             android:text="我的" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/SendToSquare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="51dp"
+        android:layout_marginStart="51dp"
+        android:text="分享到广场" />
 </RelativeLayout>

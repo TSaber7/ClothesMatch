@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".Match" />
         <activity android:name=".Square" />
-        <activity android:name=".Introduce"></activity>
+        <activity android:name=".Introduce" />
+        <activity android:name=".StyleChoose" />
+        <activity android:name=".PresentMatch" />
+        <activity android:name=".EditSquareMessage"></activity>
     </application>
 
 </manifest>

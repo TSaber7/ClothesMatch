@@ -6,17 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Match extends AppCompatActivity {
+public class StyleChoose extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_match);
-        Button smartMatch = findViewById(R.id.SmartMatch);
-        smartMatch.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_style_choose);
+        Button startMatch = findViewById(R.id.StartMatch);
+        startMatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Match.this,StyleChoose.class));
+                /* 获取搭配数据，存入suit类 */
+                Suit TestSuit=new Suit();
+                TestSuit.data="This is data from suit";
+                Intent intent=new Intent(StyleChoose.this,PresentMatch.class);
+                intent.putExtra("TestData",TestSuit);
+                startActivity(intent);
             }
         });
         Button match=findViewById(R.id.Match);
@@ -24,14 +29,14 @@ public class Match extends AppCompatActivity {
         match.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Match.this,Match.class);
+                Intent intent=new Intent(StyleChoose.this,Match.class);
                 startActivity(intent);
             }
         });
         square.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Match.this,Square.class);
+                Intent intent=new Intent(StyleChoose.this,Square.class);
                 startActivity(intent);
             }
         });
