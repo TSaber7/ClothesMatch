@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MyInfo.MyInfoActivity"></activity>
+        <activity android:name=".MyInfo.MineActivity" />
+        <activity android:name=".MyInfo.EditNiChenActivity" />
+        <activity android:name=".HaoYou.HaoYouActivity" />
+        <activity android:name=".HaoYou.ChatUIActivity" />
         <activity android:name=".ClothesMatch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +26,7 @@
         <activity android:name=".Introduce" />
         <activity android:name=".StyleChoose" />
         <activity android:name=".PresentMatch" />
-        <activity android:name=".EditSquareMessage"></activity>
+        <activity android:name=".EditSquareMessage" />
     </application>
 
 </manifest>
