@@ -9,6 +9,9 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.widget.Toast;
 
+import com.example.a74104.clothesmatch.HaoYou.HaoYouActivity;
+import com.example.a74104.clothesmatch.MyInfo.MineActivity;
+
 public class ClothesMatch extends AppCompatActivity {
 
     @Override
@@ -28,6 +31,8 @@ public class ClothesMatch extends AppCompatActivity {
         }
         Button match=findViewById(R.id.Match);
         Button square=findViewById(R.id.Square);
+        Button mine=(Button)findViewById(R.id.Mine);
+        Button friend=(Button)findViewById(R.id.Friend);
         match.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +44,20 @@ public class ClothesMatch extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ClothesMatch.this,Square.class);
+                startActivity(intent);
+            }
+        });
+        mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ClothesMatch.this, MineActivity.class);
+                startActivity(intent);
+            }
+        });
+        friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ClothesMatch.this, HaoYouActivity.class);
                 startActivity(intent);
             }
         });
