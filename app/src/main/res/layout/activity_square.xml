@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <ListView
-        android:id="@+id/SquareMessage"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ShowSquareMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/BottomPageChange">
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:id="@+id/BottomPageChange"
         android:layout_width="match_parent"

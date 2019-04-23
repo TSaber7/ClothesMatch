@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,26 +22,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class SquareMessageAdapter extends ArrayAdapter<SquareMessage>
+class SquareMessageAdapter extends RecyclerView.Adapter<SquareMessageAdapter.ViewHolder>
 {
     private static final String TAG="SquareMessageAdapter";
-    private int resourceId;
-    public SquareMessageAdapter(@NonNull Context context, int resource, List<SquareMessage> messageList) {
-        super(context, resource,messageList);
-        resourceId=resource;
+    private List<SquareMessage> MessageList;
+    static class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView Image;
+        TextView UserName;
+        TextView Text;
+        public ViewHolder(View view){
+            super(view);
+            UserName = view.findViewById(R.id.UserName);
+            Text = view.findViewById(R.id.Text);
+        }
+    }
+    public SquareMessageAdapter( List<SquareMessage> messageList) {
+        MessageList=messageList;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.square_message,parent,false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
-        Log.d(TAG, "getView: called");
-        SquareMessage message = getItem(position);
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-        TextView UserName = view.findViewById(R.id.UserName);
-        TextView Text = view.findViewById(R.id.Text);
-        UserName.setText(message.getUserName());
-        Log.d(TAG, "getView: "+message.getUserName());
-        Text.setText(message.getText());
-        return view;
+    public void onBindViewHolder(ViewHolder holder,int position) {
+        SquareMessage message = MessageList.get(position);
+        holder.UserName.setText(message.getUserName());
+        holder.Text.setText(message.getText());
+    }
+
+    @Override
+    public int getItemCount() {
+        return MessageList.size();
     }
 }
 
@@ -48,10 +66,11 @@ public class Square extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_square);
         initMessages();
-        SquareMessageAdapter adapter = new SquareMessageAdapter(Square.this, R.layout.square_message, messageList);
-        ListView listView = findViewById(R.id.SquareMessage);
-        listView.setAdapter(adapter);
-
+        RecyclerView recyclerView = findViewById(R.id.ShowSquareMessage);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        SquareMessageAdapter adapter = new SquareMessageAdapter(messageList);
+        recyclerView.setAdapter(adapter);
         Button match=findViewById(R.id.Match);
         Button square=findViewById(R.id.Square);
         match.setOnClickListener(new View.OnClickListener() {
